@@ -23,10 +23,12 @@ function getSelectionText() {
 function getSelectValue() {
 
   var valorSelecionado = getSelectionText();
-  console.log('valorSelecionado ' + valorSelecionado);
-  var numb = valorSelecionado.match(/(\d+)/g);
+  // var numb = valorSelecionado.match(/(\d+)/g);
+  // var numb = valorSelecionado.match(/(^[0-9,.]*$)/g);
+  var numb = valorSelecionado.match(/\d*\.?\,?\d*/);
+  // var numb = valorSelecionado.match(/[-+]?[0-9].?[0-9]/);
 
-  console.log('numb ' + numb);
+  console.log(numb);
 
   if (numb != null) {
     numb = numb.join('');
@@ -50,16 +52,12 @@ function conversor(numb) {
     async: true,
     timeout: 0,
     success: function (dados) {
-      console.log(dados);
-      console.log('numero: ' + numb);
 
       var valorDollarReal = dados.USD.ask;
-      console.log('valor dollar ' + valorDollarReal);
+
       var valorConvertido = numb * valorDollarReal;
-      console.log('valor Convertido ' + valorConvertido);
 
       var real = (valorConvertido + '').slice(0, 5);
-
 
       $('.valor-convertido').html('R$ ' + real);
       $('.valor-convertido').fadeIn();
