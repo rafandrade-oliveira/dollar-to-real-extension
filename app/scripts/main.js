@@ -23,16 +23,10 @@ function getSelectionText() {
 function getSelectValue() {
 
   var valorSelecionado = getSelectionText();
-  // var numb = valorSelecionado.match(/(\d+)/g);
-  // var numb = valorSelecionado.match(/(^[0-9,.]*$)/g);
   var numb = valorSelecionado.match(/\d*\.?\,?\d*/);
-  // var numb = valorSelecionado.match(/[-+]?[0-9].?[0-9]/);
 
-  console.log(numb);
+  numb = numb[0].replace(',', '.');
 
-  if (numb != null) {
-    numb = numb.join('');
-  }
 
   if (numb != '' && numb != undefined) {
     conversor(numb);
@@ -54,10 +48,10 @@ function conversor(numb) {
     success: function (dados) {
 
       var valorDollarReal = dados.USD.ask;
-
       var valorConvertido = numb * valorDollarReal;
+      var separadorNumberValorConvertido = valorConvertido.toString().split('.');
 
-      var real = (valorConvertido + '').slice(0, 5);
+      var real = separadorNumberValorConvertido[0] + ',' + separadorNumberValorConvertido[1].slice(0, 2);
 
       $('.valor-convertido').html('R$ ' + real);
       $('.valor-convertido').fadeIn();
@@ -75,6 +69,3 @@ document.onmouseup = document.onkeyup = function () {
   getSelectValue();
 };
 
-// $(document).click(function () {
-//   getSelectValue();
-// });
