@@ -49,11 +49,20 @@ function conversor(numb) {
     async: true,
     timeout: 0,
     success: function (dados) {
-      // console.log('Número Selecionado: ' + numb);
+
+      //console.log('Número Selecionado: ' + numb);
+
+      // Validação para número de unidade de milhar com virgula
+      if (numb.indexOf(',') > -1) {
+        numb = numb.replace(/,/g, '.');
+        numb = numb.replace(/(.*)\./, x => x.replace(/\./g, '') + '.')
+      }
+
       var valorDollarReal = dados.USD.ask;
-      // console.log('Valor dollar: ' + valorDollarReal);
+      //console.log('Valor dollar: ' + valorDollarReal);
       var valorConvertido = numb * valorDollarReal;
-      // console.log('Valor Convertido: ' + valorConvertido);
+      //console.log('Valor Convertido: ' + valorConvertido);
+
       var separadorNumberValorConvertido = valorConvertido.toString().split('.');
 
       var real = separadorNumberValorConvertido[0] + ',' + separadorNumberValorConvertido[1].slice(0, 2);
@@ -62,7 +71,7 @@ function conversor(numb) {
       $('.valor-convertido').fadeIn();
 
     },
-    error: function () { }
+    error: function () {}
   });
 }
 
@@ -72,4 +81,3 @@ function conversor(numb) {
 document.onmouseup = document.onkeyup = function () {
   getSelectValue();
 };
-
