@@ -12,6 +12,7 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -30,49 +31,18 @@
     <![endif]-->
 
   <div class="container">
-    <div class="jumbotron">
-      <h1>Dollar to Real Extension!</h1>
-    </div>
-
-    <div class="row marketing">
-      <h3>Dólar Americano</h3>
-      <p>USD 1,445.00</p>
-      <p>USD 595.00</p>
-      <p>$11.89</p>
-      <p>1 USD</p>
-      <p>1,50 USD</p>
-      <p>1500</p>
-      <p>1500,90</p>
-      <p>5 USD</p>
-      <p>120 USD</p>
-      <br>
-      <h3>Resultado Conversão</h3>
+    <div class="box-conteudo">
+      <img src="images/dollar.png" alt="" class="animated pulse infinite img-dollar">
+      <div class="row marketing">
+        <h3>Quantos reais?</h3>
+        <hr>
+      </div>
+      <h5>Selecione algum valor em dollar<br> para realizar a conversão.</h5>
+      <img src="images/loading.gif" alt="" class="loading">
       <p class="valor-convertido"></p>
     </div>
-
-    <div class="footer">
-      <p>made with ♥</p>
-    </div>
   </div>
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  <script>
-    (function (b, o, i, l, e, r) {
-      b.GoogleAnalyticsObject = l;
-      b[l] || (b[l] =
-        function () {
-          (b[l].q = b[l].q || []).push(arguments)
-        });
-      b[l].l = +new Date;
-      e = o.createElement(i);
-      r = o.getElementsByTagName(i)[0];
-      e.src = 'https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-
-  </script>
+  <p>50</p>
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->

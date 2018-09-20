@@ -39,7 +39,10 @@ function getSelectValue() {
 
 function conversor(numb) {
 
+  $('h5').hide();
+  $('.loading').show();
   $('.valor-convertido').hide();
+
 
   $.ajax({
     url: 'http://economia.awesomeapi.com.br/all/',
@@ -66,6 +69,8 @@ function conversor(numb) {
       var separadorNumberValorConvertido = valorConvertido.toString().split('.');
 
       var real = separadorNumberValorConvertido[0] + ',' + separadorNumberValorConvertido[1].slice(0, 2);
+
+      $('.loading').hide();
 
       $('.valor-convertido').html('R$ ' + real);
       $('.valor-convertido').fadeIn();
