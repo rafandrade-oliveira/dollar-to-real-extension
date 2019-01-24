@@ -8,7 +8,6 @@ chrome.tabs.executeScript({
     var numb = valorSelecionado.match(/(\d+)/g);
 
     if (numb != null) {
-
         numb = numb.toString().replace(',', '.');
     }
 
@@ -21,7 +20,6 @@ chrome.tabs.executeScript({
         $('h5').hide();
         $('.loading').show();
         $('.valor-convertido').hide();
-
 
         $.ajax({
             url: 'http://economia.awesomeapi.com.br/all/',
