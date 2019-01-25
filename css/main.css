@@ -11857,3 +11857,10 @@ body {
         transition: none !important
     }
 }
+
+/* ==================== CUSTOM =========== */
+body {
+    width: 350px;
+    height: 300px;
+    margin: 25px;
+}
